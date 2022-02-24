@@ -33,6 +33,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+     
+      </header>
+      <br>
+        </br>
         <div className="container">
           {lists &&
             lists.map((list, index) => <li key={index}>{list.value}</li>)}
@@ -47,7 +51,6 @@ function App() {
             <button type="submit">확인</button>
           </form>
         </div>
-      </header>
     </div>
   );
 }
