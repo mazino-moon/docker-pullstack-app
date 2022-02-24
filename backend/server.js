@@ -17,6 +17,12 @@ PRIMARY KEY (id)
     console.log("results", results);
   };
 
+  db.pool.query(`INSERT INTO VALUES ("xxxx")
+    `),
+      (err, results, fileds) => {
+        console.log("results", results);
+      };
+
 app.get("/api/values", function (req, res) {
   db.pool.query("SELECT * FROM lists;", (err, results, fileds) => {
     if (err) return res.status(500).send(err);

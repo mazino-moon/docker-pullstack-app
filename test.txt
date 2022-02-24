@@ -1,0 +1,33 @@
+# language: generic
+# sudo: required
+
+# services:
+#   - docker
+
+# before_install:
+#   - docker build -t mazinomoon/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+# script:
+#   - docker run -e CI=true mazinomoon/react-test-app npm run test
+
+# after_success:
+#   - docker build -t mazinomoon/docker-frontend ./frontend
+#   - docker build -t mazinomoon/docker-backend ./backend
+#   - docker build -t mazinomoon/docker-nginx ./nginx
+
+#   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+#   - docker push mazinomoon/docker-frontend
+#   - docker push mazinomoon/docker-backend
+#   - docker push mazinomoon/docker-nginx
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "ap-northeast-2"
+#   app: "docker-fullstack-app"
+#   env: "Dockerfullstackapp-env"
+#   bucket: elasticbeanstalk-ap-northeast-2-680904020347
+#   bucket_path: "docker-fullstack-app"
+#   on:
+#     branch: master
+
+#   access_key_id: $aws_key
+#   secret_access_key: $aws_sc
