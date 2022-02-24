@@ -12,7 +12,7 @@ script:
 after_success:
   - docker build -t mazinomoon/docker-frontend ./frontend
   - docker build -t mazinomoon/docker-backend ./backend
-  - docekr build -t mazinomoon/docker-nginx ./nginx
+  - docker build -t mazinomoon/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
   - docker push mazinomoon/docker-frontend
