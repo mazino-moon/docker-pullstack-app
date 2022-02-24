@@ -1,0 +1,20 @@
+langues: generic
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t mazino/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+script:
+  - docker run -e CI=true mazino/react-test-app npm run test
+
+after_success:
+  - docker build -t mazino/docker-frontend ./frontend
+  - docker build -t mazino/docker-backend ./backend
+  - docekr build -t mazino/docker-nginx ./nginx
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+  - docker push mazino/docker-frontend
+  - docker push mazino/docker-backend
+  - docker push mazino/docker-nginx
