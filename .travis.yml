@@ -1,7 +1,6 @@
 language: generic
-# sudo: required
-os: linux
-dist: Bionic
+sudo: required
+
 services:
   - docker
 
